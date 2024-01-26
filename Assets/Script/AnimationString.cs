@@ -17,6 +17,7 @@ public class AnimationString : MonoBehaviour
     internal static string yVelocity = "yVelocity";
     internal static string hasTarget = "hasTarget";
     internal static string lockVelocity = "lockVelocity";
+    internal static string isAttacking = "isAttacking";
 
     //trigger
     internal static string attackTrigger = "attack";

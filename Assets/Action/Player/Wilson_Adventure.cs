@@ -254,7 +254,7 @@ public partial class @Wilson_Adventure: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/K"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false

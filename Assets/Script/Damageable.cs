@@ -106,7 +106,7 @@ public class Damageable : MonoBehaviour
             damageableHit?.Invoke(damage, knockBack); //dấu ? để nếu damageableHit null thì k gọi invokle, và ngược lại
 
             //bị đánh là gọi hàm event này để hiện text dmg
-            CharacterEvent.characterDamaged.Invoke(gameObject, damage);
+          //  CharacterEvent.characterDamaged.Invoke(gameObject, damage);
             return true;
         }
         //unable to hit

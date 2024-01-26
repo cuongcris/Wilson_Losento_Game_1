@@ -48,7 +48,20 @@ public class PlayerController : MonoBehaviour
             animator.SetBool(AnimationString.isRunning, value);
         }
     }
-
+    [SerializeField]
+    private bool _isAttacking = false;
+    public bool isAttacking
+    {
+        get
+        {
+            return _isAttacking;
+        }
+        private set
+        {
+            _isAttacking = value;
+            animator.SetBool(AnimationString.isAttacking, value);
+        }
+    }
     //check right or left để đổi sprite trái phải
     private bool _isFacingRight = true;
     public bool isFacingRight
