@@ -21,7 +21,8 @@ namespace Assets.Script
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            detectionCol.Add(collision);
+            if(collision.gameObject.CompareTag("Player"))
+                detectionCol.Add(collision);
         }
         private void OnTriggerExit2D(Collider2D collision)
         {

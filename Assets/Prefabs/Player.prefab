@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3579896106667486667}
   - component: {fileID: 5408256979671308953}
+  - component: {fileID: 6953915264197006742}
   m_Layer: 0
   m_Name: Attack3Zone
   m_TagString: Untagged
@@ -61,7 +62,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -88,6 +89,20 @@ PolygonCollider2D:
       - {x: 3.173132, y: -1.3669384}
       - {x: 4.3084326, y: -1.1956263}
   m_UseDelaunayMesh: 0
+--- !u!114 &6953915264197006742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647458805759277643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a65526b49af952e4f91c34bab773a398, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDame: 10
+  knockBack: {x: 2, y: 3}
 --- !u!1 &2147275960575691061
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,6 +143,7 @@ Transform:
   - {fileID: 328373543478421011}
   - {fileID: 5371299390660278340}
   - {fileID: 3579896106667486667}
+  - {fileID: 4524508418383158765}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4301463197676563358
@@ -235,10 +251,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.8435564, y: -0.59603894}
+  m_Offset: {x: -0.21720219, y: -0.59603894}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.88, y: 0.5}
     oldSize: {x: 2.6666667, y: 2.6666667}
     newSize: {x: 2.6666667, y: 2.6666667}
     adaptiveTilingThreshold: 0.5
@@ -246,7 +262,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6799507, y: 1.4665263}
+  m_Size: {x: 0.59509087, y: 1.4665263}
   m_EdgeRadius: 0
 --- !u!114 &3459232335617891017
 MonoBehaviour:
@@ -509,7 +525,7 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   groundDistance: 0.05
-  wallDistance: 0.02
+  wallDistance: 0.05
   ceilingDistance: 0.05
   _isGrounded: 0
   _isOnWall: 0
@@ -592,7 +608,8 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: 5.088971, y: -0.80431056}
-      - {x: 4.148525, y: -0.6856632}
+      - {x: 4.540453, y: -0.34530544}
+      - {x: 3.5708904, y: -0.37357354}
       - {x: 1.9816322, y: -0.8345313}
       - {x: 1.4878626, y: -0.9285507}
       - {x: 0.5096854, y: -0.86050797}
@@ -620,6 +637,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDame: 20
   knockBack: {x: 1, y: 1}
+--- !u!1 &7192566091032016463
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4524508418383158765}
+  m_Layer: 0
+  m_Name: WallCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4524508418383158765
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7192566091032016463}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.22, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2080822982145806784}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8511384658015463879
 GameObject:
   m_ObjectHideFlags: 0
@@ -697,10 +745,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 3.4850445, y: -0.5818546}
-      - {x: 3.0337934, y: -0.18948078}
-      - {x: 2.26126, y: 0.47608972}
-      - {x: 1.0543098, y: 0.6351657}
+    - - {x: 3.7939243, y: -0.97785354}
+      - {x: 3.5169115, y: -0.26076066}
+      - {x: 3.4425316, y: 0.013843656}
+      - {x: 2.5305395, y: 0.650329}
+      - {x: 0.89591026, y: 0.88068485}
       - {x: -0.11636925, y: 0.6841407}
       - {x: -1.1397514, y: 0.5192976}
       - {x: -0.57116073, y: 0.013879418}
@@ -711,6 +760,7 @@ PolygonCollider2D:
       - {x: 1.9958305, y: -0.5995805}
       - {x: 2.255927, y: -0.9726553}
       - {x: 2.7250423, y: -1.2137258}
+      - {x: 3.0838356, y: -1.4564252}
       - {x: 3.65176, y: -1.329339}
   m_UseDelaunayMesh: 0
 --- !u!114 &342586686329382963
@@ -726,4 +776,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDame: 10
-  knockBack: {x: 1, y: 1}
+  knockBack: {x: 4, y: 4}

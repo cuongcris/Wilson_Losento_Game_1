@@ -12,6 +12,7 @@ public class TouchingDirection : MonoBehaviour
 
     //khởi tạo
     BoxCollider2D touchingColl;
+    //CapsuleCollider2D touchingColl;
     Animator anim;
 
 

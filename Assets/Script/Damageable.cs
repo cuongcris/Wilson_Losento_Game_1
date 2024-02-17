@@ -11,8 +11,12 @@ public class Damageable : MonoBehaviour
     public UnityEvent<int, Vector2> damageableHit;
     public UnityEvent damageableDeath;
 
+    //level up health
+    public string Type;
+    public int ValuePlus = 5; 
+
     [SerializeField]
-    private int _maxHealth = 100;
+    private int _maxHealth = 100 ;
     public int MaxHealth
     {
         get { return _maxHealth; }
@@ -20,7 +24,7 @@ public class Damageable : MonoBehaviour
     }
 
     [SerializeField]
-    private int _health = 100;
+    private int _health =100;
     public int Health
     {
         get
@@ -76,7 +80,7 @@ public class Damageable : MonoBehaviour
     }
     private void Update()
     {
-        //
+        //lockVelocity = false;
         if (isInvincible)
         {
             if (timeSinceHit > invincibleTimer)
@@ -88,8 +92,6 @@ public class Damageable : MonoBehaviour
             }
             timeSinceHit += Time.deltaTime;
         }
-
-
     }
 
     //return took dame or not
@@ -99,7 +101,7 @@ public class Damageable : MonoBehaviour
         {
             Health -= damage;
             isInvincible = true; //bất tử là kiểu đánh 1 cái xong đợi 1 xí mới đánh phát nữa đc
-            lockVelocity = true;
+          //  lockVelocity = true;
             //thông báo cho các thành phần khác là đã nhận đòn đánh 
             animator.SetTrigger(AnimationString.hitTrigger);
 

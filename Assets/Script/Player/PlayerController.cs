@@ -150,8 +150,7 @@ public class PlayerController : MonoBehaviour
 
         animator.SetFloat(AnimationString.yVelocity, rb.velocity.y); //set velocity.y để biết đang nhảy lên hay rớt xuống 
     }
-
-
+   
     private void setFacingDirection(Vector2 moveInput)
     {
         if (moveInput.x > 0 && !isFacingRight)
