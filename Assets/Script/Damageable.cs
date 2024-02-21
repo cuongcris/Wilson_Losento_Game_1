@@ -101,14 +101,13 @@ public class Damageable : MonoBehaviour
         {
             Health -= damage;
             isInvincible = true; //bất tử là kiểu đánh 1 cái xong đợi 1 xí mới đánh phát nữa đc
-          //  lockVelocity = true;
             //thông báo cho các thành phần khác là đã nhận đòn đánh 
             animator.SetTrigger(AnimationString.hitTrigger);
 
             damageableHit?.Invoke(damage, knockBack); //dấu ? để nếu damageableHit null thì k gọi invokle, và ngược lại
 
             //bị đánh là gọi hàm event này để hiện text dmg
-          //  CharacterEvent.characterDamaged.Invoke(gameObject, damage);
+           CharacterEvent.characterDamaged.Invoke(gameObject, damage);
             return true;
         }
         //unable to hit
