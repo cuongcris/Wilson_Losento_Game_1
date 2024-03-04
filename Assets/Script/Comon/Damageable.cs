@@ -17,7 +17,7 @@ public class Damageable : MonoBehaviour
 
     [SerializeField]
     private int _maxHealth = 100 ;
-    public int MaxHealth
+    public  int MaxHealth
     {
         get { return _maxHealth; }
         set { _maxHealth = value; }
@@ -25,7 +25,7 @@ public class Damageable : MonoBehaviour
 
     [SerializeField]
     private int _health =100;
-    public int Health
+    public  int Health
     {
         get
         {
@@ -128,5 +128,12 @@ public class Damageable : MonoBehaviour
             return true;
         }
         return false;
+    }
+    public void ResetHealth()
+    {
+        isAlive = true;
+        lockVelocity = false;
+        
+        _health = _maxHealth;
     }
 }

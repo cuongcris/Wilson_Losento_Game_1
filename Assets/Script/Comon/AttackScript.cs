@@ -22,8 +22,7 @@ namespace Assets.Script
                 Vector2 directionKnockback = transform.parent.localScale.x > 0 ? knockBack : new Vector2(-knockBack.x, knockBack.y);
                 //hit target
                 bool getDame = damageable.Hit(attackDame, directionKnockback);
-                if (getDame)
-                    Debug.Log(collision.name + " attack " + attackDame);
+                
             }
         }         
     }

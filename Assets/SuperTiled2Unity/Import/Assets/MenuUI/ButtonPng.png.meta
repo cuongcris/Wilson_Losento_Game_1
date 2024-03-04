@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2e72a42122d9bb144b2b2fad44da7f20
+guid: b711a004babdc354f96dd53023d0fba1
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 22
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
@@ -110,34 +110,34 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cauthang1
+      name: ButtonPng_0
       rect:
         serializedVersion: 2
-        x: 353
-        y: 812
-        width: 31
-        height: 17
+        x: 1013
+        y: 21
+        width: 990
+        height: 729
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 104cd1a2005624f4090f90deb7b60d7d
-      internalID: -1854865122
+      spriteID: a08c04ac25cee054884f0654dd217a67
+      internalID: 454796517
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cauthang2
+      name: ButtonPng_1
       rect:
         serializedVersion: 2
-        x: 353
-        y: 792
-        width: 31
-        height: 20
+        x: 305
+        y: 760
+        width: 176
+        height: 111
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,29 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81b6ecb8402386b4bb65eedf27889a14
-      internalID: -951935815
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cauthang3
-      rect:
-        serializedVersion: 2
-        x: 353
-        y: 772
-        width: 31
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bf5db4f5b29b9824fb0382adf2e8d01d
-      internalID: 315450832
+      spriteID: 6b7f0a37cc1808248bd1fe833186ef97
+      internalID: -83673767
       vertices: []
       indices: 
       edges: []
@@ -183,9 +162,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      cauthang1: -1854865122
-      cauthang2: -951935815
-      cauthang3: 315450832
+      ButtonPng_0: 454796517
+      ButtonPng_1: -83673767
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2e72a42122d9bb144b2b2fad44da7f20
+guid: 5eadcdfd0bce05e40b894a0613cd9541
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 22
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cauthang1
+      name: ButtonMain_preview_rev_1_0
       rect:
         serializedVersion: 2
-        x: 353
-        y: 812
-        width: 31
-        height: 17
+        x: 35
+        y: 394
+        width: 190
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 104cd1a2005624f4090f90deb7b60d7d
-      internalID: -1854865122
+      spriteID: b5bf3314b740f4f4fb22d2e25c5fb0e8
+      internalID: -1634335766
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cauthang2
+      name: ButtonMain_preview_rev_1_1
       rect:
         serializedVersion: 2
-        x: 353
-        y: 792
-        width: 31
-        height: 20
+        x: 275
+        y: 394
+        width: 191
+        height: 71
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81b6ecb8402386b4bb65eedf27889a14
-      internalID: -951935815
+      spriteID: 9e9c751cd93f2674ca24c74d2adaec89
+      internalID: -353531882
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cauthang3
+      name: ButtonMain_preview_rev_1_2
       rect:
         serializedVersion: 2
-        x: 353
-        y: 772
-        width: 31
-        height: 20
+        x: 35
+        y: 274
+        width: 190
+        height: 71
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,8 +166,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf5db4f5b29b9824fb0382adf2e8d01d
-      internalID: 315450832
+      spriteID: a887e684e50167943bbbdd4272eebae0
+      internalID: -1383473868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ButtonMain_preview_rev_1_3
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 274
+        width: 191
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f2393528a5d93648aaddeb45c7e23bd
+      internalID: 490817185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ButtonMain_preview_rev_1_4
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 154
+        width: 190
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a593a7a2bdbd38344b0c271c8d45c24b
+      internalID: 1194491093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ButtonMain_preview_rev_1_5
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 155
+        width: 191
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cfae6f5c97115749862a833d02bc426
+      internalID: -97643679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ButtonMain_preview_rev_1_6
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 35
+        width: 190
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3814a35b5cbcca4aaa16a345e3e2db8
+      internalID: 1031676035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ButtonMain_preview_rev_1_7
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 36
+        width: 191
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 930961cebc9f88b4eb407ce4086a57ab
+      internalID: -580660792
       vertices: []
       indices: 
       edges: []
@@ -183,9 +288,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      cauthang1: -1854865122
-      cauthang2: -951935815
-      cauthang3: 315450832
+      ButtonMain_preview_rev_1_0: -1634335766
+      ButtonMain_preview_rev_1_1: -353531882
+      ButtonMain_preview_rev_1_2: -1383473868
+      ButtonMain_preview_rev_1_3: 490817185
+      ButtonMain_preview_rev_1_4: 1194491093
+      ButtonMain_preview_rev_1_5: -97643679
+      ButtonMain_preview_rev_1_6: 1031676035
+      ButtonMain_preview_rev_1_7: -580660792
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

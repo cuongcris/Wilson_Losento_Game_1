@@ -11,14 +11,19 @@ public class PlayerController : MonoBehaviour
     public float runSpeed = 7f;
     public float airSpeed = 3f;
     public float jumpImpulse = 10f; // luc nhay
-
+    public int Life = 3;
     //khai báo lớp touching direction để lấy thuộc tính static
     TouchingDirection touchingDirection;
     //khởi tạo
     Rigidbody2D rb;
     Animator animator;
     Damageable damageable;
+    BoxCollider2D cl;
 
+    public Transform level1Spawn;
+    public Transform level2Spawn;
+    public Transform NextLevelPosition;
+    public GameObject UIDie;
     //moving and running
     [SerializeField]
     private bool _isMoving = false;
@@ -118,11 +123,16 @@ public class PlayerController : MonoBehaviour
     }
     //
 
-
     [SerializeField]
+    private bool _canMove=true;
     public bool canMove
     {
-        get { return animator.GetBool(AnimationString.canMove); }
+        get { return _canMove;/*animator.GetBool(AnimationString.canMove);*/ }
+        set
+        {
+            _canMove = value;
+            animator.SetBool(AnimationString.canMove,value);
+        }
     }
     [SerializeField]
     public bool isAlive
@@ -141,6 +151,7 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         touchingDirection = GetComponent<TouchingDirection>();
         damageable = GetComponent<Damageable>();
+        cl = GetComponent<BoxCollider2D>();
     }
 
     private void FixedUpdate() //khi update các tác động vật lý thì dùng fixedUpdate()
@@ -223,5 +234,47 @@ public class PlayerController : MonoBehaviour
     public void onHit(int damage, Vector2 knockback)
     {
         rb.velocity = new Vector2(knockback.x, rb.velocity.y + knockback.y);
+    }
+    public void OnDeath()
+    {
+        Life--;
+        canMove = false;
+        if (Life <= 0)
+        {
+            StartCoroutine(PlayerDieCo(2f));
+        }
+        else
+        {
+            StartCoroutine(RespawnAfterDelay(2f)); // Respawn after 1 seconds
+        }
+    }
+    IEnumerator PlayerDieCo(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        UIDie.SetActive(true);
+        gameObject.SetActive(false);
+    }
+    //hoi sinh sau 2s
+    IEnumerator RespawnAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        if(transform.position.x <= NextLevelPosition.position.x)
+        {
+            transform.position = new Vector2(level1Spawn.position.x, 7);
+        }else if (transform.position.x > NextLevelPosition.position.x)
+        {
+            transform.position = new Vector2(level2Spawn.position.x, 7);
+        }
+        rb.velocity = Vector2.zero; // Reset velocity
+        damageable.ResetHealth(); // Reset health
+        canMove = true;
+    }
+    public void RestartGame()
+    {
+        transform.position = new Vector2(level1Spawn.position.x, 7);
+        rb.velocity = Vector2.zero; // Reset velocity
+        damageable.ResetHealth(); // Reset health
+        canMove = true;
+        gameObject.SetActive(true);
     }
 }

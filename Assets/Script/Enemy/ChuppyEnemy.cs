@@ -150,4 +150,9 @@ public class ChuppyEnemy : MonoBehaviour
             flipDirection();
         }
     }
+    public void onDeath()
+    {
+
+        Destroy(gameObject, 1f);
+    }
 }

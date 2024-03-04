@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - ground
+  - Ladder
   layers:
   - Default
   - TransparentFX
@@ -43,9 +44,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Player
+  - name: Object
+    uniqueID: 3411049851
+    locked: 0
+  - name: Character
     uniqueID: 253834485
     locked: 0
-  - name: New Layer 2
+  - name: UI
     uniqueID: 3386402907
     locked: 0

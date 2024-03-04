@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2e72a42122d9bb144b2b2fad44da7f20
+guid: 0be2d28e5d25c4b4e9bc5dfa43e9da6f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 22
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
@@ -110,34 +110,34 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cauthang1
+      name: PauseLevel_0
       rect:
         serializedVersion: 2
-        x: 353
-        y: 812
-        width: 31
-        height: 17
+        x: 895
+        y: 485
+        width: 205
+        height: 92
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 104cd1a2005624f4090f90deb7b60d7d
-      internalID: -1854865122
+      spriteID: 6e9e78d5a3c344d43ab09c0385b2c49a
+      internalID: -409260509
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cauthang2
+      name: PauseLevel_1
       rect:
         serializedVersion: 2
-        x: 353
-        y: 792
-        width: 31
-        height: 20
+        x: 830
+        y: 405
+        width: 330
+        height: 68
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81b6ecb8402386b4bb65eedf27889a14
-      internalID: -951935815
+      spriteID: 031c659deba9b8845a6a9c78b147b233
+      internalID: 1573243180
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cauthang3
+      name: PauseLevel_2
       rect:
         serializedVersion: 2
-        x: 353
-        y: 772
-        width: 31
-        height: 20
+        x: 830
+        y: 257
+        width: 327
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf5db4f5b29b9824fb0382adf2e8d01d
-      internalID: 315450832
+      spriteID: eeef4c2a8bdc2854f9eba80fde882ecb
+      internalID: -1399695656
       vertices: []
       indices: 
       edges: []
@@ -183,9 +183,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      cauthang1: -1854865122
-      cauthang2: -951935815
-      cauthang3: 315450832
+      PauseLevel_0: -409260509
+      PauseLevel_1: 1573243180
+      PauseLevel_2: -1399695656
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

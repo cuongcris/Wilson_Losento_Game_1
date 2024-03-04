@@ -120,6 +120,7 @@ GameObject:
   - component: {fileID: 631133745398429135}
   - component: {fileID: 443583511975449455}
   - component: {fileID: 196250246939342682}
+  - component: {fileID: 3848359803578865409}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -184,9 +185,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingLayerID: 253834485
+  m_SortingLayer: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 1726307873, guid: 34b7a97e47f7b6642af2b619c78d012f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -251,7 +252,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.21720219, y: -0.59603894}
+  m_Offset: {x: -0.32864094, y: -0.59603894}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.88, y: 0.5}
@@ -262,7 +263,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.59509087, y: 1.4665263}
+  m_Size: {x: 0.81796837, y: 1.4665263}
   m_EdgeRadius: 0
 --- !u!114 &3459232335617891017
 MonoBehaviour:
@@ -280,9 +281,15 @@ MonoBehaviour:
   runSpeed: 7
   airSpeed: 5
   jumpImpulse: 10
+  Life: 3
+  level1Spawn: {fileID: 0}
+  level2Spawn: {fileID: 0}
+  NextLevelPosition: {fileID: 0}
+  UIDie: {fileID: 0}
   _isMoving: 0
   _isRunning: 0
   _isAttacking: 0
+  _canMove: 1
 --- !u!50 &6782023014355898720
 Rigidbody2D:
   serializedVersion: 4
@@ -493,9 +500,23 @@ MonoBehaviour:
         m_CallState: 2
   damageableDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3459232335617891017}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  Type: 
+  ValuePlus: 5
   _maxHealth: 100
-  _health: 100
+  _health: 10
   _isAlive: 1
   invincibleTimer: 1
 --- !u!114 &196250246939342682
@@ -530,6 +551,19 @@ MonoBehaviour:
   _isGrounded: 0
   _isOnWall: 0
   _isOnCeiling: 0
+--- !u!114 &3848359803578865409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2147275960575691061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6276668589cfda44954e714e787145d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
 --- !u!1 &3653375730208842616
 GameObject:
   m_ObjectHideFlags: 0

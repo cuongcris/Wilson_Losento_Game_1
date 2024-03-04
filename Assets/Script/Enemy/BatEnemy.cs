@@ -121,5 +121,6 @@ public class BatEnemy : MonoBehaviour
         rb.gravityScale = 2;
         rb.velocity = new Vector2(0, rb.velocity.y);
         deadCollder.enabled = true;
+        Destroy(gameObject, 1f);
     }
 }
