@@ -35,6 +35,7 @@ public class UIManager : MonoBehaviour
     public void CharacterTookDmg(GameObject character, int dmgReceiced) //KHI NHẬN DAME
     {
         //create  text at character hit
+        Debug.Log(dmgReceiced);
         Vector3 spawnPosition = Camera.main.WorldToScreenPoint(character.transform.position);
 
         TMP_Text tmpText = Instantiate(damageTextPrefab, spawnPosition, Quaternion.identity, gameCanvas.transform).

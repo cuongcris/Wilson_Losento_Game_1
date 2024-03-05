@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     Damageable damageable;
     BoxCollider2D cl;
 
+    public bool _hasKey = false;
+
     public Transform level1Spawn;
     public Transform level2Spawn;
     public Transform NextLevelPosition;
@@ -276,5 +278,14 @@ public class PlayerController : MonoBehaviour
         damageable.ResetHealth(); // Reset health
         canMove = true;
         gameObject.SetActive(true);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Key"))
+        {
+            _hasKey = true;
+            Destroy(collision.gameObject);
+        }
     }
 }

@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - ground
   - Ladder
+  - Key
   layers:
   - Default
   - TransparentFX
