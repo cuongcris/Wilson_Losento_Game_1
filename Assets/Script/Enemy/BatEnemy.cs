@@ -8,7 +8,7 @@ public class BatEnemy : MonoBehaviour
     public DitectionZone biteDetectionZone;
     Damageable damageable;
 
-    public float batSpeed = 2f;
+    public float batSpeed;
     public float wayPointReachedDistance = 0.1f;   //khoảng cách va chạm với waypoint
     public List<Transform> wayPoints;
     public Collider2D deadCollder;
@@ -36,6 +36,9 @@ public class BatEnemy : MonoBehaviour
     {
         get { return animator.GetBool(AnimationString.canMove); }
     }
+
+    public NextLevelTriiger levelTriiger;
+    public Enemy enemyAttribute;
     void Awake()
     {
         animator = GetComponent<Animator>();
@@ -51,6 +54,15 @@ public class BatEnemy : MonoBehaviour
     void Update()
     {
         hasTarget = biteDetectionZone.detectionCol.Count > 0;
+        //nếu qua màn thì offset(hệ số theo level) sẽ thay đổi --> dẫn đến chỉ số của quái sẽ thay đổi theo
+        if (levelTriiger != null && enemyAttribute != null)
+        {
+            batSpeed = enemyAttribute.Speed * (levelTriiger.offset == 0 ? 1f : (float)levelTriiger.offset * 20 / 100);
+        }
+        else
+        {
+            batSpeed = 3f;
+        }
     }
 
     private void FixedUpdate()

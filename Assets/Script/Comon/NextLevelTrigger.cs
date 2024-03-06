@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static Cinemachine.DocumentationSortingAttribute;
 
 public class NextLevelTriiger : MonoBehaviour
 {
@@ -13,10 +14,13 @@ public class NextLevelTriiger : MonoBehaviour
     public PlayerController playerController;
     public string missionText = "";
 
+    public int offset;
+
     BoxCollider2D cl;
     public GameObject Player;
     private void Start()
     {
+        offset = 0;
         cl = GetComponent<BoxCollider2D>();
     }
     private void Update()
@@ -29,8 +33,7 @@ public class NextLevelTriiger : MonoBehaviour
                 cameraBoundObject.transform.position = new Vector2((level2.position.x + 5), 0);
                 cl.isTrigger = false;
                 playerController._hasKey = false;
-
-                
+                offset += 10;
                 mission.text = missionText;
             }
         }

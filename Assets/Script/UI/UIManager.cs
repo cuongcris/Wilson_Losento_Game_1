@@ -3,14 +3,34 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
     public GameObject damageTextPrefab;
     public GameObject healthTextPrefab;
 
+    public PlayerController playerController;
+    public GameObject keyDisplay;
+    public bool keyIsActive;
+
+
     public Canvas gameCanvas;
 
+
+    private void Update()
+    {
+        if (playerController._hasKey)
+        {
+            keyIsActive = true;
+            keyDisplay.SetActive(keyIsActive);
+        }
+        else
+        {
+            keyIsActive = false;
+            keyDisplay.SetActive(keyIsActive);
+        }
+    }
     private void Awake()
     {
         gameCanvas = FindObjectOfType<Canvas>();
@@ -52,4 +72,6 @@ public class UIManager : MonoBehaviour
             GetComponent<TMP_Text>();
         tmpText.text = healRestored.ToString();
     }
+
+
 }

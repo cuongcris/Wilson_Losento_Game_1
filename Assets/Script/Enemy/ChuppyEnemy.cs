@@ -7,7 +7,7 @@ using UnityEngine;
 public class ChuppyEnemy : MonoBehaviour
 {
     public float walkAcceleration = 30f; //gia tốc
-    public float maxSpeed = 3f;
+    public float maxSpeed;
     public DitectionZone attackZone;
 
 
@@ -20,6 +20,7 @@ public class ChuppyEnemy : MonoBehaviour
     //walk derection
     private walkAbleDirection _walkDirection;
     private Vector2 walkDirectionVector = Vector2.right;
+
     public walkAbleDirection walkDirection
     {
         get
@@ -80,6 +81,9 @@ public class ChuppyEnemy : MonoBehaviour
         }
     }
 
+    public NextLevelTriiger levelTriiger;
+    public Enemy enemyAttribute;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -99,6 +103,15 @@ public class ChuppyEnemy : MonoBehaviour
         hasTarget = attackZone.detectionCol.Count > 0;
         if (attackCountDown > 0)
             attackCountDown -= Time.deltaTime;
+        //nếu qua màn thì offset(hệ số theo level) sẽ thay đổi --> dẫn đến chỉ số của quái sẽ thay đổi theo
+        if (levelTriiger != null && enemyAttribute != null)
+        {
+            maxSpeed = enemyAttribute.Speed * (levelTriiger.offset == 0 ? 1f : (float)levelTriiger.offset * 13 / 100);
+        }
+        else
+        {
+            maxSpeed = 3f;
+        }
     }
     private void FixedUpdate()
     {

@@ -280,7 +280,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 253834485
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 965962916, guid: 17b0238ec2e77c94d8e39ffafe26b9e3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -448,8 +448,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  Type: 
-  ValuePlus: 20
   _maxHealth: 100
   _health: 100
   _isAlive: 1
@@ -560,5 +558,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a65526b49af952e4f91c34bab773a398, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDame: 10
+  levelTriiger: {fileID: 1341116704216715346, guid: 70f39f8f4ee58d44d8c31463d1483b30, type: 3}
   knockBack: {x: 5, y: 5}

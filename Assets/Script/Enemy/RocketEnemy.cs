@@ -11,7 +11,11 @@ public class RocketEnemy : MonoBehaviour
     public float attackRadius; // area where enemy can attack
     //  public Transform homePosition;
     public Animator anim;
-    public float moveSpeed = 2;
+    public float moveSpeed;
+
+    public NextLevelTriiger levelTriiger;
+    public Enemy enemyAttribute;
+
     public SpriteRenderer sprite;
     
     void Start()
@@ -33,6 +37,16 @@ public class RocketEnemy : MonoBehaviour
             GetComponent<Collider2D>().enabled = false;
             myRb.simulated = false;
             anim.enabled = false;
+        }
+
+        //nếu qua màn thì offset(hệ số theo level) sẽ thay đổi --> dẫn đến chỉ số của quái sẽ thay đổi theo
+        if (levelTriiger != null && enemyAttribute != null)
+        {
+            moveSpeed = enemyAttribute.Speed * (levelTriiger.offset == 0 ? 1f : (float)levelTriiger.offset * 14 / 100);
+        }
+        else
+        {
+            moveSpeed = 2f;
         }
     }
     IEnumerator DeathCountdown()

@@ -1,4 +1,5 @@
 ﻿using Assets.Script;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,9 +12,7 @@ public class Damageable : MonoBehaviour
     public UnityEvent<int, Vector2> damageableHit;
     public UnityEvent damageableDeath;
 
-    //level up health
-    public string Type;
-    public int ValuePlus = 5; 
+
 
     [SerializeField]
     private int _maxHealth = 100 ;
@@ -24,7 +23,7 @@ public class Damageable : MonoBehaviour
     }
 
     [SerializeField]
-    private int _health =100;
+    private int _health = 100;
     public  int Health
     {
         get
@@ -92,6 +91,7 @@ public class Damageable : MonoBehaviour
             }
             timeSinceHit += Time.deltaTime;
         }
+
     }
 
     //return took dame or not
@@ -113,7 +113,6 @@ public class Damageable : MonoBehaviour
         //unable to hit
         return false;
     }
-
 
     public bool Heal(int HealRestored)
     {
