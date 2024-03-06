@@ -5,13 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class UIMenu : MonoBehaviour
 {
-   public void NewGame ()
+    public void NewGame ()
     {
         SceneManager.LoadScene(1);
+
+        // Play button click sound after loading scene
     }
 
     public void ExitGame()
     {
         Application.Quit();
     }
+  
 }

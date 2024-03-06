@@ -6,18 +6,35 @@ using UnityEngine.SceneManagement;
 public class UIPause : MonoBehaviour
 {
     [SerializeField] public GameObject PauseMenuPanel;
+    [SerializeField] public GameObject InstructionMenuButton;
+    private bool isInstructionShow = false;
     public void Pause()
     {
         PauseMenuPanel.SetActive(true);
         Time.timeScale = 0f;
     }
-
-     void Update()
+    public void ShowInstruction()
     {
+        InstructionMenuButton.SetActive(true);
+        isInstructionShow = true;
+        Time.timeScale = 0f;
+    }
+
+    void Update()
+    {
+        
        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Pause();
+            if (isInstructionShow == true)
+            {
+                InstructionMenuButton.SetActive(false);
+                isInstructionShow = false;
+                Time.timeScale = 1f;
+            }
+            else
+                Pause();
         }
+       
     }
     public void Resume()
     {
@@ -31,4 +48,5 @@ public class UIPause : MonoBehaviour
         Resume();
         SceneManager.LoadScene(0);
     }
+
 }
