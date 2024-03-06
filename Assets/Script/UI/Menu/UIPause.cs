@@ -17,7 +17,6 @@ public class UIPause : MonoBehaviour
     {
         InstructionMenuButton.SetActive(true);
         isInstructionShow = true;
-        Time.timeScale = 0f;
     }
 
     void Update()
@@ -29,7 +28,6 @@ public class UIPause : MonoBehaviour
             {
                 InstructionMenuButton.SetActive(false);
                 isInstructionShow = false;
-                Time.timeScale = 1f;
             }
             else
                 Pause();

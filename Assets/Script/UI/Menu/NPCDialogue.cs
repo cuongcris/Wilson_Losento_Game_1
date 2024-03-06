@@ -10,8 +10,7 @@ public class NPCDialogue : MonoBehaviour
     private SpriteRenderer speechBubbRenderer;
 
     public GameObject PopupSignMission;
-    public GameObject PopupInstruction;
-    private bool isActive= false;
+    private bool isActiveMissionPopup= false;
     void Start()
     {
         speechBubbRenderer = GetComponent<SpriteRenderer>();
@@ -21,21 +20,20 @@ public class NPCDialogue : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
 
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.CompareTag("Player"))
         {
-            
             speechBubbRenderer.enabled = true;
             player = collision.gameObject.GetComponent<Transform>();
             if (Input.GetKeyDown(KeyCode.E))
             {
-                if (isActive)
+                if (isActiveMissionPopup)
                 {
                     PopupSignMission.SetActive(false);
-                    isActive = false;
+                    isActiveMissionPopup = false;
                 }
                 else
                 {
-                    isActive = true;
+                    isActiveMissionPopup = true;
                     PopupSignMission.SetActive(true);
                 }
             }
@@ -47,14 +45,13 @@ public class NPCDialogue : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if(collision.gameObject.CompareTag("Player"))
         {
             PopupSignMission.SetActive(false);
-
             speechBubbRenderer.enabled=false;
         }
     }
     
-    public void ShowInstruction()
+   
 
 }
