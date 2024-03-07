@@ -12,8 +12,6 @@ public class Damageable : MonoBehaviour
     public UnityEvent<int, Vector2> damageableHit;
     public UnityEvent damageableDeath;
 
-
-
     [SerializeField]
     private int _maxHealth = 100 ;
     public  int MaxHealth
@@ -23,7 +21,7 @@ public class Damageable : MonoBehaviour
     }
 
     [SerializeField]
-    private int _health = 100;
+    public int _health = 100;
     public  int Health
     {
         get

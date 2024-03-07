@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 public class PlayerController : MonoBehaviour
 {
     //declare
@@ -10,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public float walkSpeed = 5f;
     public float runSpeed = 7f;
     public float airSpeed = 3f;
+    public int DameInit = 10;
     public float jumpImpulse = 10f; // luc nhay
     public int Life = 3;
     //khai báo lớp touching direction để lấy thuộc tính static
@@ -22,10 +26,18 @@ public class PlayerController : MonoBehaviour
 
     public bool _hasKey = false;
 
+    [Header("......Transform......")]
     public Transform level1Spawn;
     public Transform level2Spawn;
     public Transform NextLevelPosition;
     public GameObject UIDie;
+
+    [Header("......Text Display........")]
+    public Text HealthDisplay;
+    public Text SpeedDisplay;
+    public Text DamageDisplay;
+    public Text LifeDisplay;
+
     //moving and running
     [SerializeField]
     private bool _isMoving = false;
@@ -155,6 +167,22 @@ public class PlayerController : MonoBehaviour
         damageable = GetComponent<Damageable>();
         cl = GetComponent<BoxCollider2D>();
     }
+    private void Update()
+    {
+        if (damageable.Health <= 0) {
+            HealthDisplay.text = 0 + "";
+        }
+        else HealthDisplay.text = damageable.Health.ToString();
+        
+        if (currentMoveSpeed == 0)
+        {
+            SpeedDisplay.text = 5+"";
+        }
+        else  SpeedDisplay.text = currentMoveSpeed.ToString();
+
+        DamageDisplay.text = DameInit.ToString();
+        LifeDisplay.text = " X"+ Life.ToString();
+    }
 
     private void FixedUpdate() //khi update các tác động vật lý thì dùng fixedUpdate()
     {
@@ -247,7 +275,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            StartCoroutine(RespawnAfterDelay(2f)); // Respawn after 1 seconds
+            StartCoroutine(RespawnAfterDelay(2f)); 
         }
     }
     IEnumerator PlayerDieCo(float delay)
@@ -259,6 +287,7 @@ public class PlayerController : MonoBehaviour
     //hoi sinh sau 2s
     IEnumerator RespawnAfterDelay(float delay)
     {
+        cl.isTrigger = true;
         yield return new WaitForSeconds(delay);
         if(transform.position.x <= NextLevelPosition.position.x)
         {
@@ -270,14 +299,11 @@ public class PlayerController : MonoBehaviour
         rb.velocity = Vector2.zero; // Reset velocity
         damageable.ResetHealth(); // Reset health
         canMove = true;
+        cl.isTrigger=false;
     }
     public void RestartGame()
     {
-        transform.position = new Vector2(level1Spawn.position.x, 7);
-        rb.velocity = Vector2.zero; // Reset velocity
-        damageable.ResetHealth(); // Reset health
-        canMove = true;
-        gameObject.SetActive(true);
+        SceneManager.LoadScene(1);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -285,6 +311,20 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Key"))
         {
             _hasKey = true;
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.CompareTag("DameItem"))
+        {
+            DameInit += 10;
+            Destroy(collision.gameObject);
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            damageable.Health -= 50;
+
             Destroy(collision.gameObject);
         }
     }

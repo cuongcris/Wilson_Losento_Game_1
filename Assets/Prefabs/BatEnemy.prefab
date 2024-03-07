@@ -79,7 +79,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 253834485
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -578525331, guid: 17b0238ec2e77c94d8e39ffafe26b9e3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -170,8 +170,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  Type: 
-  ValuePlus: 20
   _maxHealth: 100
   _health: 5
   _isAlive: 1
@@ -230,6 +228,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   deadCollder: {fileID: 4237718984009320518}
+  itemPrefabs:
+  - {fileID: 8730831060435804340, guid: d279c2d3efdb19e46a519b7803e6061d, type: 3}
+  - {fileID: 6737606087458328933, guid: 322c7b15d00f0fa458fa64f413b44502, type: 3}
+  itemDropForce: 2
+  levelTriiger: {fileID: 0}
+  enemyAttribute: {fileID: 0}
 --- !u!1 &4959317996982532368
 GameObject:
   m_ObjectHideFlags: 0
@@ -472,4 +476,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDame: 20
+  playerController: {fileID: 0}
+  typeAttack: 0
+  levelTriiger: {fileID: 0}
+  enemyAttribute: {fileID: 0}
   knockBack: {x: 1, y: 1}

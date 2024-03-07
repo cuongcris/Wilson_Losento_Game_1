@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -47,7 +48,10 @@ public class NPCDialogue : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            PopupSignMission.SetActive(false);
+            if(PopupSignMission.IsDestroyed()==false)
+            {
+                PopupSignMission.SetActive(false);
+            }
             speechBubbRenderer.enabled=false;
         }
     }

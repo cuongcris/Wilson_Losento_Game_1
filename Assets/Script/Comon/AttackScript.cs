@@ -9,7 +9,9 @@ namespace Assets.Script
 {
     public class attackScript : MonoBehaviour
     {
-        private int attackDame;
+        public int attackDame;
+        public PlayerController playerController;
+        public int typeAttack;
 
         public NextLevelTriiger levelTriiger;
         public Enemy enemyAttribute;
@@ -25,8 +27,21 @@ namespace Assets.Script
             }
             else
             {
-                attackDame = 20;
                 //dame cua player
+                if (typeAttack == 1)
+                {
+                    attackDame = playerController.DameInit+5;
+                }else if(typeAttack == 2)
+                {
+                    attackDame = playerController.DameInit + 10;
+                }else if(typeAttack == 3)
+                {
+                    attackDame = playerController.DameInit + 20;
+                }
+                else
+                {
+                    attackDame = 10;
+                }
             }
         }
 

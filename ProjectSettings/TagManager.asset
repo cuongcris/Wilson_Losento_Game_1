@@ -8,6 +8,9 @@ TagManager:
   - ground
   - Ladder
   - Key
+  - Life
+  - Bullet
+  - DameItem
   layers:
   - Default
   - TransparentFX

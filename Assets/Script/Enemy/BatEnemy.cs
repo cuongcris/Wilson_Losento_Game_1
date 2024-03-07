@@ -12,7 +12,8 @@ public class BatEnemy : MonoBehaviour
     public float wayPointReachedDistance = 0.1f;   //khoảng cách va chạm với waypoint
     public List<Transform> wayPoints;
     public Collider2D deadCollder;
-
+    public GameObject[] itemPrefabs; // Mảng chứa các prefab của các vật phẩm
+    public float itemDropForce = 2f; // Lực văng của vật phẩm
     Transform nextWayPoint;
     int wayPointNumber = 0;
 
@@ -129,6 +130,24 @@ public class BatEnemy : MonoBehaviour
     }
     public void onDeath()
     {
+        int randomIndex = Random.Range(0, 4);
+        if (randomIndex < itemPrefabs.Length)
+        {
+            GameObject randomItemPrefab = itemPrefabs[randomIndex];
+
+            // Tạo prefab được chọn và đặt vị trí là vị trí hiện tại của enemy
+            GameObject spawnedItem = Instantiate(randomItemPrefab, transform.position, Quaternion.identity);
+
+            // Áp dụng lực văng cho vật phẩm
+            Rigidbody2D rb = spawnedItem.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                // Tính toán hướng văng ngẫu nhiên
+                Vector2 randomDirection = Random.insideUnitCircle.normalized;
+                // Áp dụng lực văng
+                rb.AddForce(randomDirection * itemDropForce, ForceMode2D.Impulse);
+            }
+        }
 
         rb.gravityScale = 2;
         rb.velocity = new Vector2(0, rb.velocity.y);
