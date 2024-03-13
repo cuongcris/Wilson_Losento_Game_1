@@ -169,7 +169,7 @@ public class ChuppyEnemy : MonoBehaviour
     public void onDeath()
     {
 
-        int randomIndex = Random.Range(0,4);
+        int randomIndex = Random.Range(0,3);
         if (randomIndex < itemPrefabs.Length)
         {
             GameObject randomItemPrefab = itemPrefabs[randomIndex];
@@ -187,7 +187,7 @@ public class ChuppyEnemy : MonoBehaviour
                 rb.AddForce(randomDirection * itemDropForce, ForceMode2D.Impulse);
             }
         }
-       
-        Destroy(gameObject, 1f);
+        
+        Destroy(gameObject, 1.2f);
     }
 }

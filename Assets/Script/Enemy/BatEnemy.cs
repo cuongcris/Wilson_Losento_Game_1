@@ -130,7 +130,7 @@ public class BatEnemy : MonoBehaviour
     }
     public void onDeath()
     {
-        int randomIndex = Random.Range(0, 4);
+        int randomIndex = Random.Range(0, 2);
         if (randomIndex < itemPrefabs.Length)
         {
             GameObject randomItemPrefab = itemPrefabs[randomIndex];

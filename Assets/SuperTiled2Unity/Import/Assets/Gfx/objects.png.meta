@@ -2629,10 +2629,10 @@ TextureImporter:
       name: objects_129
       rect:
         serializedVersion: 2
-        x: 192
+        x: 208
         y: 72
-        width: 48
-        height: 24
+        width: 15
+        height: 12
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2970,7 +2970,7 @@ TextureImporter:
         width: 13
         height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
