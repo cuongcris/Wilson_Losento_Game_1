@@ -11,6 +11,9 @@ public class BossScript : MonoBehaviour
     public float detectionRadius = 5f;
 
     private bool playerInRange = false;
+ 
+         [SerializeField]
+    private AudioSource bulletSound;
 
     Animator animator;
     void Start()
@@ -59,6 +62,7 @@ public class BossScript : MonoBehaviour
                 {
                     // Thiết lập tốc độ cho đạn
                     rb.velocity = fireDirection * bulletSpeed;
+                        bulletSound.Play();
                 }
             }
         }

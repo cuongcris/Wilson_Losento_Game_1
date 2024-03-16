@@ -55,6 +55,7 @@ public class BatEnemy : MonoBehaviour
     void Update()
     {
         hasTarget = biteDetectionZone.detectionCol.Count > 0;
+     
         //nếu qua màn thì offset(hệ số theo level) sẽ thay đổi --> dẫn đến chỉ số của quái sẽ thay đổi theo
         if (levelTriiger != null && enemyAttribute != null)
         {
@@ -147,6 +148,7 @@ public class BatEnemy : MonoBehaviour
                 // Áp dụng lực văng
                 rb.AddForce(randomDirection * itemDropForce, ForceMode2D.Impulse);
             }
+          
         }
 
         rb.gravityScale = 2;

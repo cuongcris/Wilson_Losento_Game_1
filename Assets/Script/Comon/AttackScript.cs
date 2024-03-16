@@ -17,6 +17,8 @@ namespace Assets.Script
         public Enemy enemyAttribute;
 
         public Vector2 knockBack = Vector2.zero;
+        [SerializeField]
+        private AudioSource dameSound;
 
         private void Update()
         {

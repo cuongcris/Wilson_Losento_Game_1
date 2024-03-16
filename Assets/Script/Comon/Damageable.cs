@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+
 //dùng để chứa máu, dame và death , có thể dùng cho cả player and enemy
 public class Damageable : MonoBehaviour
 {
@@ -11,7 +12,8 @@ public class Damageable : MonoBehaviour
     Animator animator;
     public UnityEvent<int, Vector2> damageableHit;
     public UnityEvent damageableDeath;
-
+    [SerializeField]
+    private AudioSource itemSound;
     [SerializeField]
     private int _maxHealth = 100 ;
     public  int MaxHealth
@@ -93,6 +95,8 @@ public class Damageable : MonoBehaviour
     }
 
     //return took dame or not
+
+    public AudioSource hitSound;
     public bool Hit(int damage, Vector2 knockBack)
     {
         if (isAlive && !isInvincible) //nếu còn sống và không bất tử 
@@ -103,9 +107,12 @@ public class Damageable : MonoBehaviour
             animator.SetTrigger(AnimationString.hitTrigger);
 
             damageableHit?.Invoke(damage, knockBack); //dấu ? để nếu damageableHit null thì k gọi invokle, và ngược lại
-
+            if (hitSound != null)
+            {
+                hitSound.Play(); // Phát âm thanh
+            }
             //bị đánh là gọi hàm event này để hiện text dmg
-           CharacterEvent.characterDamaged.Invoke(gameObject, damage);
+            CharacterEvent.characterDamaged.Invoke(gameObject, damage);
             return true;
         }
         //unable to hit
@@ -122,6 +129,7 @@ public class Damageable : MonoBehaviour
 
             //nhặt heart thì hiện heal text
             CharacterEvent.characterHealed.Invoke(gameObject, actualHeal);
+            itemSound.Play();
             return true;
         }
         return false;

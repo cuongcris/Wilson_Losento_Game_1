@@ -103,7 +103,9 @@ public class ChuppyEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
         hasTarget = attackZone.detectionCol.Count > 0;
+     
         if (attackCountDown > 0)
             attackCountDown -= Time.deltaTime;
         //nếu qua màn thì offset(hệ số theo level) sẽ thay đổi --> dẫn đến chỉ số của quái sẽ thay đổi theo

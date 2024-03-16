@@ -12,34 +12,37 @@ public class NPCDialogue : MonoBehaviour
 
     public GameObject PopupSignMission;
     private bool isActiveMissionPopup= false;
+    bool checkkey = false;
     void Start()
     {
         speechBubbRenderer = GetComponent<SpriteRenderer>();
         speechBubbRenderer.enabled = false;
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            checkkey = true;
+        }
+    }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
 
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.tag == "Player")
         {
+
             speechBubbRenderer.enabled = true;
-            player = collision.gameObject.GetComponent<Transform>();
-            if (Input.GetKeyDown(KeyCode.E))
+            //player = collision.gameObject.GetComponent<Transform>();
+            if (checkkey)
             {
-                if (isActiveMissionPopup)
-                {
-                    PopupSignMission.SetActive(false);
-                    isActiveMissionPopup = false;
-                }
-                else
-                {
-                    isActiveMissionPopup = true;
-                    PopupSignMission.SetActive(true);
-                }
+                PopupSignMission.SetActive(!isActiveMissionPopup);
+                isActiveMissionPopup = !isActiveMissionPopup;
+                checkkey = false;
+
             }
-        
-                    
+
+
         }
     }
 

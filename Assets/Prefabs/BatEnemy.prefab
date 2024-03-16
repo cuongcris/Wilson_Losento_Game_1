@@ -170,10 +170,23 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6824981763642220683}
+        m_TargetAssemblyTypeName: BatEnemy, Assembly-CSharp
+        m_MethodName: onDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _maxHealth: 100
-  _health: 5
+  _health: 4
   _isAlive: 1
   invincibleTimer: 0.25
+  hitSound: {fileID: 0}
 --- !u!70 &803137372751598316
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

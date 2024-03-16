@@ -532,6 +532,7 @@ MonoBehaviour:
   _health: 100
   _isAlive: 1
   invincibleTimer: 0
+  hitSound: {fileID: 0}
 --- !u!114 &747713229180572432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -551,6 +552,7 @@ MonoBehaviour:
   - {fileID: 6737606087458328933, guid: 322c7b15d00f0fa458fa64f413b44502, type: 3}
   - {fileID: 8730831060435804340, guid: d279c2d3efdb19e46a519b7803e6061d, type: 3}
   itemDropForce: 2
+  enemyattackSound: {fileID: 0}
   walkStopRate: 0.05
   levelTriiger: {fileID: 0}
   enemyAttribute: {fileID: 776110458923342642}
@@ -676,3 +678,4 @@ MonoBehaviour:
   levelTriiger: {fileID: 0}
   enemyAttribute: {fileID: 776110458923342642}
   knockBack: {x: 5, y: 5}
+  dameSound: {fileID: 0}

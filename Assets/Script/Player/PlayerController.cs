@@ -23,7 +23,8 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     Damageable damageable;
     BoxCollider2D cl;
-
+    [SerializeField]
+    private AudioSource keySound;
     public bool _hasKey = false;
 
     [Header("......Transform......")]
@@ -38,8 +39,15 @@ public class PlayerController : MonoBehaviour
     public Text DamageDisplay;
     public Text LifeDisplay;
 
+    [SerializeField]
+    private AudioSource jumpSound;
+    [SerializeField]
+    private AudioSource attackSound;
+    [SerializeField]
+    private AudioSource itemSound;
     //moving and running
     [SerializeField]
+    private AudioSource moveSound;
     private bool _isMoving = false;
     public bool isMoving
     {
@@ -214,6 +222,17 @@ public class PlayerController : MonoBehaviour
             isMoving = moveInput != Vector2.zero;
 
             setFacingDirection(moveInput);
+
+            // Kiểm tra nếu nhân vật đang di chuyển và âm thanh di chuyển chưa được phát
+            if (isMoving && !moveSound.isPlaying)
+            {
+                moveSound.Play(); // Phát âm thanh di chuyển
+            }
+            // Nếu nhân vật dừng lại hoặc không có đầu vào di chuyển, dừng phát âm thanh
+            else if (!isMoving || moveInput == Vector2.zero)
+            {
+                moveSound.Stop(); // Dừng phát âm thanh
+            }
         }
         else
         {
@@ -237,12 +256,19 @@ public class PlayerController : MonoBehaviour
     }
 
 
+  
     public void onJump(InputAction.CallbackContext context)
     {
         if (context.started && touchingDirection.isGrounded && canMove)
         {
             animator.SetTrigger(AnimationString.jumpTrigger);
             rb.velocity = new Vector2(rb.velocity.x, jumpImpulse);
+
+            // Kiểm tra nếu nhân vật đang nhảy và âm thanh nhảy chưa được phát
+            if (!jumpSound.isPlaying)
+            {
+                jumpSound.Play(); // Phát âm thanh nhảy
+            }
         }
     }
 
@@ -251,6 +277,8 @@ public class PlayerController : MonoBehaviour
         if (context.started)
         {
             animator.SetTrigger(AnimationString.attackTrigger);
+            attackSound.Play(); 
+
         }
     }
     public void onFireAttack(InputAction.CallbackContext context)
@@ -311,11 +339,13 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Key"))
         {
             _hasKey = true;
+            keySound.Play();
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.CompareTag("DameItem"))
         {
             DameInit += 10;
+            itemSound.Play();
             Destroy(collision.gameObject);
         }
     }

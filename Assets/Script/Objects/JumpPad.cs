@@ -7,6 +7,7 @@ public class JumpPad : MonoBehaviour
     private BoxCollider2D boxCollider2D;
     private Animator animator;
     public float force = 10f;
+    public AudioSource jumpSound;
     private void Start()
     {
         boxCollider2D = GetComponent<BoxCollider2D>();
@@ -19,6 +20,7 @@ public class JumpPad : MonoBehaviour
             if (collision.contacts[0].normal.y < -0.5f)
             {
                 animator.SetTrigger("jump");
+                jumpSound.Play();
                 collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * force, ForceMode2D.Impulse);
             }
             else

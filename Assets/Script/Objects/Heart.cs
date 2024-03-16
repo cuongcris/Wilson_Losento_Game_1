@@ -5,7 +5,6 @@ using UnityEngine;
 public class Heart : MonoBehaviour
 {
     public int healRestore = 20; //lượng máu của mỗi trái tim 
-
     // Update is called once per frame
     void Update()
     {
@@ -20,7 +19,8 @@ public class Heart : MonoBehaviour
             {
                 bool wasHeal = damageable.Heal(healRestore); //kiểm tra đã nhặt heart hay chưa
                 if (wasHeal)
-                    Destroy(gameObject);
+                Destroy(gameObject);
+                
             }
         }
     }
