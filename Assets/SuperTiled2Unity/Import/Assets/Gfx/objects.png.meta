@@ -1278,38 +1278,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: objects_55
-      rect:
-        serializedVersion: 2
-        x: 265
-        y: 235
-        width: 39
-        height: 40
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 2.5, y: -19}
-        - {x: 2.5, y: -2}
-        - {x: 7.5, y: -2}
-        - {x: 7.5, y: -19}
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5bc28eb50e138994e8013db13f3b9b38
-      internalID: -866688892
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: objects_56
       rect:
         serializedVersion: 2
-        x: 305
-        y: 262
-        width: 8
-        height: 15
+        x: 297
+        y: 256
+        width: 29
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2982,6 +2957,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: 1giay
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 215
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81a5c5cbae513784ba49371604362e9e
+      internalID: -1343155251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -2993,6 +2989,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      1giay: -1343155251
       binh 1: -1412628384
       binh 2: -107439458
       binh 3: 1036035384

@@ -131,8 +131,13 @@ MonoBehaviour:
   attackRadius: 1.5
   anim: {fileID: 0}
   moveSpeed: 2
+  score: 5
   levelTriiger: {fileID: 0}
   enemyAttribute: {fileID: 0}
+  itemPrefabs:
+  - {fileID: 6737606087458328933, guid: 322c7b15d00f0fa458fa64f413b44502, type: 3}
+  - {fileID: 8730831060435804340, guid: d279c2d3efdb19e46a519b7803e6061d, type: 3}
+  itemDropForce: 2
   sprite: {fileID: 8105261298771327395}
 --- !u!50 &3128842983747254916
 Rigidbody2D:
@@ -223,11 +228,25 @@ MonoBehaviour:
       m_Calls: []
   damageableDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3214406143638345738}
+        m_TargetAssemblyTypeName: RocketEnemy, Assembly-CSharp
+        m_MethodName: OnDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  itemSound: {fileID: 0}
   _maxHealth: 100
-  _health: 100
+  _health: 70
   _isAlive: 1
   invincibleTimer: 0
+  hitSound: {fileID: 0}
 --- !u!114 &6211494159577349391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,6 +388,7 @@ MonoBehaviour:
   levelTriiger: {fileID: 0}
   enemyAttribute: {fileID: 0}
   knockBack: {x: 2, y: 1}
+  dameSound: {fileID: 0}
 --- !u!61 &920681332589692972
 BoxCollider2D:
   m_ObjectHideFlags: 0

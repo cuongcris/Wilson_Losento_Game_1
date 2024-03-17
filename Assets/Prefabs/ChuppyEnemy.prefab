@@ -294,7 +294,6 @@ GameObject:
   - component: {fileID: 4743539790595684901}
   - component: {fileID: 747713229180572432}
   - component: {fileID: 2207351626972569268}
-  - component: {fileID: 776110458923342642}
   m_Layer: 6
   m_Name: ChuppyEnemy
   m_TagString: Untagged
@@ -528,6 +527,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  itemSound: {fileID: 0}
   _maxHealth: 100
   _health: 100
   _isAlive: 1
@@ -548,28 +548,15 @@ MonoBehaviour:
   walkAcceleration: 30
   maxSpeed: 3
   attackZone: {fileID: 9115785730349365659}
+  score: 20
   itemPrefabs:
   - {fileID: 6737606087458328933, guid: 322c7b15d00f0fa458fa64f413b44502, type: 3}
   - {fileID: 8730831060435804340, guid: d279c2d3efdb19e46a519b7803e6061d, type: 3}
   itemDropForce: 2
-  enemyattackSound: {fileID: 0}
   walkStopRate: 0.05
   levelTriiger: {fileID: 0}
-  enemyAttribute: {fileID: 776110458923342642}
+  enemyAttribute: {fileID: 0}
 --- !u!114 &2207351626972569268
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6547483952637737682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6756ff02ffa3187479f15541c85626d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Enemytype: 2
---- !u!114 &776110458923342642
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -676,6 +663,6 @@ MonoBehaviour:
   playerController: {fileID: 0}
   typeAttack: 0
   levelTriiger: {fileID: 0}
-  enemyAttribute: {fileID: 776110458923342642}
+  enemyAttribute: {fileID: 0}
   knockBack: {x: 5, y: 5}
   dameSound: {fileID: 0}

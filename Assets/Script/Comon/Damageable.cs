@@ -121,12 +121,18 @@ public class Damageable : MonoBehaviour
 
     public bool Heal(int HealRestored)
     {
-        if (isAlive && Health < MaxHealth)
+        if (isAlive )
         {
             int maxHeal = Mathf.Max(MaxHealth - Health, 0);
             int actualHeal = Mathf.Min(maxHeal, HealRestored);
-            Health += actualHeal;
-
+            if (Health < MaxHealth)
+            {
+                Health += actualHeal;
+            }
+            else
+            {
+                Health +=0;
+            }
             //nhặt heart thì hiện heal text
             CharacterEvent.characterHealed.Invoke(gameObject, actualHeal);
             itemSound.Play();

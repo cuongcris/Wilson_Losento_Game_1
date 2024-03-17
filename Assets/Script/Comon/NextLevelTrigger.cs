@@ -7,9 +7,7 @@ using static Cinemachine.DocumentationSortingAttribute;
 public class NextLevelTriiger : MonoBehaviour
 {
     public GameObject cameraBoundObject;
-    public Transform level1;
-    public Transform level2;
-
+    public Vector2 level2 = new Vector2(132.2f, 5.098955f);
     public Text mission;
     public PlayerController playerController;
     public string missionText = "";
@@ -30,7 +28,7 @@ public class NextLevelTriiger : MonoBehaviour
             cl.isTrigger = true;
             if (Player.transform.position.x > gameObject.transform.position.x + 1)
             {
-                cameraBoundObject.transform.position = new Vector2((level2.position.x + 5), 0);
+                cameraBoundObject.transform.position = level2;
                 cl.isTrigger = false;
                 playerController._hasKey = false;
                 offset += 10;

@@ -9,8 +9,7 @@ public class ChuppyEnemy : MonoBehaviour
     public float walkAcceleration = 30f; //gia tốc
     public float maxSpeed;
     public DitectionZone attackZone;
-
-
+    public int score;
     public GameObject[] itemPrefabs; // Mảng chứa các prefab của các vật phẩm
     public float itemDropForce = 2f; // Lực văng của vật phẩm
 
@@ -189,7 +188,7 @@ public class ChuppyEnemy : MonoBehaviour
                 rb.AddForce(randomDirection * itemDropForce, ForceMode2D.Impulse);
             }
         }
-        
+        Score.score += score;
         Destroy(gameObject, 1.2f);
     }
 }

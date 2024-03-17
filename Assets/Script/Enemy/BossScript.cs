@@ -9,9 +9,10 @@ public class BossScript : MonoBehaviour
     public float bulletSpeed = 5f;
     public float fireRate = 1f;
     public float detectionRadius = 5f;
-
+    private bool showPopup=false;
     private bool playerInRange = false;
- 
+   
+    public GameObject PopUpMisition;
          [SerializeField]
     private AudioSource bulletSound;
 
@@ -20,18 +21,36 @@ public class BossScript : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         StartCoroutine(FireBullets());
+        showPopup = false;
     }
 
     void Update()
     {
+        
         // Kiểm tra xem player có trong vùng phát hiện không
         if (Physics2D.OverlapCircle(transform.position, detectionRadius, LayerMask.GetMask("Player")))
         {
+            if (showPopup==false)
+            {
+                showPopup = true;
+                PopUpMisition.SetActive(true);
+                Time.timeScale = 0f;
+            }
             playerInRange = true;
         }
         else
         {
             playerInRange = false;
+
+
+        }
+        if (showPopup == true && playerInRange == true)
+        {
+            if(Input.GetKeyDown(KeyCode.E))
+            {
+                PopUpMisition.SetActive(false);
+                Time.timeScale = 1f;
+            }
         }
     }
     public void OnDeath()

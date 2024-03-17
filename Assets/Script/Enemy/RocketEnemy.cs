@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class RocketEnemy : MonoBehaviour
 {
@@ -13,9 +14,12 @@ public class RocketEnemy : MonoBehaviour
     public Animator anim;
     public float moveSpeed;
 
+    public int score;
     public NextLevelTriiger levelTriiger;
     public Enemy enemyAttribute;
 
+    public GameObject[] itemPrefabs; // Mảng chứa các prefab của các vật phẩm
+    public float itemDropForce = 2f;
     public SpriteRenderer sprite;
     
     void Start()
@@ -100,5 +104,29 @@ public class RocketEnemy : MonoBehaviour
             // Nếu khoảng cách lớn hơn bán kính theo dõi, vô hiệu hóa trạng thái wakeUp
             anim.SetBool("wakeUp", false);
         }
+    }
+    public void OnDeath()
+    {
+
+        int randomIndex = Random.Range(0, 3);
+        if (randomIndex < itemPrefabs.Length)
+        {
+            GameObject randomItemPrefab = itemPrefabs[randomIndex];
+
+            // Tạo prefab được chọn và đặt vị trí là vị trí hiện tại của enemy
+            GameObject spawnedItem = Instantiate(randomItemPrefab, transform.position, Quaternion.identity);
+
+            // Áp dụng lực văng cho vật phẩm
+            Rigidbody2D rb = spawnedItem.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                // Tính toán hướng văng ngẫu nhiên
+                Vector2 randomDirection = Random.insideUnitCircle.normalized;
+                // Áp dụng lực văng
+                rb.AddForce(randomDirection * itemDropForce, ForceMode2D.Impulse);
+            }
+        }
+        Score.score += score;
+        Destroy(gameObject, 0.5f);
     }
 }

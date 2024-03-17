@@ -61,6 +61,7 @@ namespace Assets.Script
                 bool getDame = damageable.Hit(attackDame, directionKnockback);
                 
             }
+           
         }         
     }
 }

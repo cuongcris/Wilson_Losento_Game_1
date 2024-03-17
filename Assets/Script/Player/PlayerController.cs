@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
     BoxCollider2D cl;
     [SerializeField]
     private AudioSource keySound;
+    [SerializeField]
+    private AudioSource HitSound;
     public bool _hasKey = false;
 
     [Header("......Transform......")]
@@ -277,9 +279,21 @@ public class PlayerController : MonoBehaviour
         if (context.started)
         {
             animator.SetTrigger(AnimationString.attackTrigger);
-            attackSound.Play(); 
-
+            StartCoroutine(PlayAttackSoundAfterAnimation());
         }
+    }
+
+    private IEnumerator PlayAttackSoundAfterAnimation()
+    {
+        // Đợi cho animation attack kết thúc
+        while (!animator.GetCurrentAnimatorStateInfo(0).IsName("Wilson_attack"))
+        {
+            yield return null;
+        }
+        // Đợi một khoảng thời gian nhỏ để đảm bảo animation attack kết thúc hoàn toàn
+        yield return new WaitForSeconds(0.1f);
+        // Phát âm thanh tấn công
+        attackSound.Play();
     }
     public void onFireAttack(InputAction.CallbackContext context)
     {
@@ -354,7 +368,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Bullet"))
         {
             damageable.Health -= 50;
-
+            HitSound.Play();
             Destroy(collision.gameObject);
         }
     }

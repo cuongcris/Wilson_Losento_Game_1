@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6106672979434343334}
   - component: {fileID: 803137372751598316}
   - component: {fileID: 6824981763642220683}
+  - component: {fileID: 7569110639493859618}
   m_Layer: 6
   m_Name: BatEnemy
   m_TagString: Enemy
@@ -170,20 +171,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 6824981763642220683}
-        m_TargetAssemblyTypeName: BatEnemy, Assembly-CSharp
-        m_MethodName: onDeath
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  itemSound: {fileID: 0}
   _maxHealth: 100
-  _health: 4
+  _health: 50
   _isAlive: 1
   invincibleTimer: 0.25
   hitSound: {fileID: 0}
@@ -235,6 +225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   biteDetectionZone: {fileID: 4751386836541573761}
+  score: 10
   batSpeed: 2
   wayPointReachedDistance: 0.1
   wayPoints:
@@ -246,7 +237,20 @@ MonoBehaviour:
   - {fileID: 6737606087458328933, guid: 322c7b15d00f0fa458fa64f413b44502, type: 3}
   itemDropForce: 2
   levelTriiger: {fileID: 0}
-  enemyAttribute: {fileID: 0}
+  enemyAttribute: {fileID: 7569110639493859618}
+--- !u!114 &7569110639493859618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1726434625874544225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6756ff02ffa3187479f15541c85626d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemytype: 1
 --- !u!1 &4959317996982532368
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,5 +496,6 @@ MonoBehaviour:
   playerController: {fileID: 0}
   typeAttack: 0
   levelTriiger: {fileID: 0}
-  enemyAttribute: {fileID: 0}
+  enemyAttribute: {fileID: 7569110639493859618}
   knockBack: {x: 1, y: 1}
+  dameSound: {fileID: 0}

@@ -7,7 +7,7 @@ public class BatEnemy : MonoBehaviour
 {
     public DitectionZone biteDetectionZone;
     Damageable damageable;
-
+    public int score ;
     public float batSpeed;
     public float wayPointReachedDistance = 0.1f;   //khoảng cách va chạm với waypoint
     public List<Transform> wayPoints;
@@ -150,7 +150,7 @@ public class BatEnemy : MonoBehaviour
             }
           
         }
-
+        Score.score += score;
         rb.gravityScale = 2;
         rb.velocity = new Vector2(0, rb.velocity.y);
         deadCollder.enabled = true;
