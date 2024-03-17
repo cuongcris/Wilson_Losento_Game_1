@@ -350,12 +350,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Key"))
-        {
-            _hasKey = true;
-            keySound.Play();
-            Destroy(collision.gameObject);
-        }
+        
         if (collision.gameObject.CompareTag("DameItem"))
         {
             DameInit += 10;
@@ -365,6 +360,12 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.CompareTag("Key"))
+        {
+            _hasKey = true;
+            keySound.Play();
+            Destroy(collision.gameObject);
+        }
         if (collision.gameObject.CompareTag("Bullet"))
         {
             damageable.Health -= 50;

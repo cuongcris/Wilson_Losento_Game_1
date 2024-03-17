@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4483640596280601944}
   - component: {fileID: 386186370029041152}
   - component: {fileID: 6211494159577349391}
+  - component: {fileID: 7860685928199448666}
   m_Layer: 0
   m_Name: RocketEnemy
   m_TagString: Enemy
@@ -133,7 +134,7 @@ MonoBehaviour:
   moveSpeed: 2
   score: 5
   levelTriiger: {fileID: 0}
-  enemyAttribute: {fileID: 0}
+  enemyAttribute: {fileID: 7860685928199448666}
   itemPrefabs:
   - {fileID: 6737606087458328933, guid: 322c7b15d00f0fa458fa64f413b44502, type: 3}
   - {fileID: 8730831060435804340, guid: d279c2d3efdb19e46a519b7803e6061d, type: 3}
@@ -248,6 +249,19 @@ MonoBehaviour:
   invincibleTimer: 0
   hitSound: {fileID: 0}
 --- !u!114 &6211494159577349391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2262860173244614809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6756ff02ffa3187479f15541c85626d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemytype: 3
+--- !u!114 &7860685928199448666
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -386,7 +400,7 @@ MonoBehaviour:
   playerController: {fileID: 0}
   typeAttack: 0
   levelTriiger: {fileID: 0}
-  enemyAttribute: {fileID: 0}
+  enemyAttribute: {fileID: 7860685928199448666}
   knockBack: {x: 2, y: 1}
   dameSound: {fileID: 0}
 --- !u!61 &920681332589692972
@@ -421,7 +435,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.3964882, y: 0.016764164}
+  m_Offset: {x: 0.0012683868, y: 0.016764164}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -432,5 +446,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.66156006, y: 0.2556696}
+  m_Size: {x: 1.9657936, y: 0.2556696}
   m_EdgeRadius: 0

@@ -39,7 +39,5 @@ public class NextLevelTriiger : MonoBehaviour
         {
             cl.isTrigger = false;
         }
-        
     }
-   
 }
