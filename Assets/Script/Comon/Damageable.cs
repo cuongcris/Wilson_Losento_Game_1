@@ -101,7 +101,14 @@ public class Damageable : MonoBehaviour
     {
         if (isAlive && !isInvincible) //nếu còn sống và không bất tử 
         {
-            Health -= damage;
+            if(damage >= Health)
+            {
+                Health = 0;
+            }
+            else
+            {
+                Health -= damage;
+            }
             isInvincible = true; //bất tử là kiểu đánh 1 cái xong đợi 1 xí mới đánh phát nữa đc
             //thông báo cho các thành phần khác là đã nhận đòn đánh 
             animator.SetTrigger(AnimationString.hitTrigger);
