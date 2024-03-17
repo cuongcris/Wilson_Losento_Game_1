@@ -11,7 +11,11 @@ public class BossScript : MonoBehaviour
     public float detectionRadius = 5f;
     private bool showPopup=false;
     private bool playerInRange = false;
-   
+
+    public Damageable damageable;
+    public GameObject healBarChildPrefab;
+    private GameObject childObject;
+
     public GameObject PopUpMisition;
          [SerializeField]
     private AudioSource bulletSound;
@@ -22,11 +26,15 @@ public class BossScript : MonoBehaviour
         animator = GetComponent<Animator>();
         StartCoroutine(FireBullets());
         showPopup = false;
+        childObject = Instantiate(healBarChildPrefab, gameObject.transform);
+        childObject.transform.localPosition = new Vector3(2.95f, 2.75f, 0f);
     }
 
     void Update()
     {
-        
+        //Update thanh mau
+        CalculatorhearthBar();
+
         // Kiểm tra xem player có trong vùng phát hiện không
         if (Physics2D.OverlapCircle(transform.position, detectionRadius, LayerMask.GetMask("Player")))
         {
@@ -50,6 +58,7 @@ public class BossScript : MonoBehaviour
             {
                 PopUpMisition.SetActive(false);
                 Time.timeScale = 1f;
+                
             }
         }
     }
@@ -60,6 +69,22 @@ public class BossScript : MonoBehaviour
 
     }
 
+    public float curHealthPercent = 1;
+    public void CalculatorhearthBar()
+    {
+        //Lay do rong hien tai
+        Transform transform = childObject.transform;
+        Vector3 currentScale = transform.localScale;
+
+        //tinh % mau hien tai
+        curHealthPercent = (float) damageable.Health / 500;
+
+        //thay doi do rong theo % hien tai
+        currentScale.x = (float) (-4)  * curHealthPercent;
+
+        //cap nhap lai
+        childObject.transform.localScale = currentScale;
+    }
     
 
     IEnumerator FireBullets()
